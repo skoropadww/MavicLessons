@@ -1,0 +1,546 @@
+@import "reset";
+@import "vars";
+@import "fonts";
+@import "global";
+@import "slick";
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 30px;
+    right: 0;
+    z-index: 10;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 30px;
+        text-transform: uppercase;
+        font-size: 15px;
+        line-height: 17px;
+        @extend %ubuntu-medium;
+    }
+    &__btn {
+        color: #fff;
+        background-color: transparent;
+        padding: 6px 28px;
+        border: 1px solid #fff;
+        border-radius: 3px;
+        margin-right: 8px;
+        text-transform: uppercase;
+        cursor: pointer;
+        @extend %ubuntu-bold;
+        transition: 0.3s ease-in-out;
+        transition-property: background-color, color;
+        &:hover {
+            color: #1C1C1C;
+            background-color: #fff;
+        }
+    }
+    &__phone {
+        font-size: 16px;
+        line-height: 18px;
+        @extend %ubuntu-bold;
+    }
+}
+
+.menu {
+    &__list-item {
+        display: inline-block;
+        & + .menu__list-item {
+            padding-left: 20px;
+        }
+        &.active a{
+            text-decoration: underline;
+        }
+    }
+    &__list-phone {
+        display: none;
+    }
+    &__btn {
+        display: none;
+    }
+}
+
+.top {
+    background-image: url(../images/top-bg.jpg);
+    &::before {
+        content:'';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.4;
+        background: radial-gradient(45.97% 54.43% at 50% 45.57%, rgba(23, 26, 28, 0) 50.28%, rgba(23, 26, 28, 0.00225974) 50.29%, rgba(4, 5, 5, 0.820343) 58.72%, rgba(5, 5, 6, 0.792703) 80.08%, #000000 87.89%);
+    }
+    &__wrapper {
+        display: flex;
+        align-items: flex-end;
+    }
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    &__title {
+        font-size: 96px;
+        line-height: 1.2em;
+        @extend %sf-semibold;
+        margin-bottom: 25px;
+    }
+    &__text {
+        max-width: 325px;
+        margin: 25px 0 35px;
+    }
+    &__social-item {
+        display:inline-block;
+        margin: 0 25px;
+    }
+    &__social-link {
+        opacity: 0.5;
+        transition: opacity 0.3s ease-in-out;
+        width: 40px;
+        height: 40px;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.products {
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 50px;
+    }
+    &__text {
+        max-width: 440px;
+        p {
+            margin-bottom: 30px;
+        }
+    }
+    &__slider-box {
+        position: relative;
+        padding-top: 110px;
+    }
+    &__slider-text {
+        width: 285px;
+        position: absolute;
+        text-align: right;
+        font-size: 24px;
+        line-height: 1.2em;
+        @extend %ubuntu-medium;
+        bottom: 30px;
+        left: -250px;
+        z-index: 5;
+    }
+    &__slider{
+        max-width: 560px;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 276px;
+            border: 4px solid #fff;
+            top: -15px;
+            right: -15px;
+        }
+    }
+}
+
+.slider-btn{
+    padding: 16px 26px;
+    border: none;
+    background-color: #fff;
+    position: absolute;
+    bottom: -55px;
+    right: 0;
+    cursor: pointer;
+    z-index: 5;
+    svg {
+        stroke: #000;
+    }
+    &__left {
+        right: 60px;
+    }
+    &.slick-disabled {
+        background-color: #1C1C1C;
+        svg {
+            stroke: #fff;
+        }
+    }
+}
+
+.benefits {
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        padding-left: 25px;
+    }
+    
+    &__item {
+        margin-bottom: 100px;
+        display: flex;
+        align-items: flex-end;
+        &:nth-child(even) {
+            margin-left: 40px;
+            transform: translateY(30px);
+        }
+        &:nth-child(3) {
+            margin-left: 30px;
+        }
+        &:nth-child(4) {
+            margin-left: 60px;
+        }
+
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3) {
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+
+            }
+        }
+        &:first-child {
+            &::before {
+                height: 48px;
+                width: 245px;
+                background-image: url(../images/line-1.svg);
+                right: -56px;
+                top: 31px;
+            }
+        }
+
+        &:nth-child(2) {
+            &::before {
+                background-image: url(../images/line-2.svg);
+                width: 463px;
+                height: 62px;
+                top: 135px;
+                left: -435px;
+            }
+        }
+
+        &:nth-child(3) {
+            &::before {
+                background-image: url(../images/line-3.svg);
+                width: 254px;
+                height: 42px;
+                right: -55px;
+                top: 50px;
+            }
+        }
+    }
+
+    
+    &__num {
+        font-size: 36px;
+        line-height: 1.2em;
+        margin-right: 10px;
+        @extend %ubuntu-bold;
+    }
+    &__img {
+        position: relative;
+        margin-right: 32px;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 128px;
+            border: 2px solid #fff;
+            right: -12px;
+            top: -12px;
+            z-index: -1;
+        }
+    }
+    &__info {
+        max-width: 300px;
+        width: 100%;
+    }
+    &__info-title {
+        width: 123px;
+        font-size: 21px;
+        line-height: 1.2em;
+        @extend %ubuntu-bold;
+        margin-bottom: 10px;
+    }
+    &__info-text {
+        font-size: 15px;
+        line-height: 1.2em;
+    }
+}
+
+.specification {
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 25px;
+    }
+    &__item--center {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    &__box {
+        max-width: 280px;
+        position: relative;
+        margin-top: 10px;
+        &::before {
+            content: '';
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: contain;
+        }
+    }
+
+    &__box-1 {
+        margin-bottom: 140px;
+    }
+    &__box-3 {
+        margin-bottom: 160px;
+    }
+    &__box-1::before{
+        background-image: url(../images/pointer-1.svg);
+        width: 229px;
+        height: 116px;
+        right: -180px;
+        top: 13px;
+    }
+    &__box-2::before{
+        background-image: url(../images/pointer-2.svg);
+        width: 346px;
+        height: 81px;
+        right: -325px;
+        bottom: 85px;
+    }
+    &__box-3::before{
+        background-image: url(../images/pointer-3.svg);
+        width: 258px;
+        height: 103px;
+        left: -285px;
+        top: 10px;
+    }
+    &__box-4::before {
+        background-image: url(../images/pointer-4.svg);
+        width: 124px;
+        height: 89px;
+        left: -140px;
+        bottom: 106px;
+    }
+    &__box-title {
+        font-size: 21px;
+        line-height: 1.2em;
+        @extend %ubuntu-bold;
+        margin-bottom: 10px;
+    }
+    &__box-text {
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 1.2em;
+    }
+}
+
+.questions {
+    &__items{
+        max-width: 757px;
+        padding-bottom: 15px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 319px;
+            height: 125px;
+            bottom: 20px;
+            right: -319px;
+            background-image: url(../images/question-bg.png);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: cover;
+        }
+    }
+
+    &__item {
+        background-color: rgba(0,0,0,.3);
+        max-width: 690px;
+        margin-bottom: 5px;
+        &.questions__item--active {
+            .questions__item-title::after {
+                transform: rotate(180deg);
+            }
+            .questions__item-text {
+                opacity: 1;
+                visibility: visible;
+                padding:0 10px 75px 50px;
+                font-size: 15px;
+            }
+        }
+    }
+
+    &__item-title {
+        position: relative;
+        font-size: 21px;
+        line-height: 1.2em;
+        @extend %ubuntu-medium;
+        color: rgba($color: #fff, $alpha: .8);
+        padding: 20px 10px 24px 40px;
+        cursor: pointer;
+        &::after {
+            content: url('../images/accordion-arrow.svg');
+            position: absolute;
+            right: -72px;
+            width: 72px;
+            height: 67px;
+            background-color: #fff;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__item-text {
+        padding:0 10px 0px 50px;
+        line-height: 1.2em;
+        font-size: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s ease-in-out;
+        transition-property: opacity  visibility padding font-size;
+    }
+}
+
+.contacts {
+    &__inner {
+        display: flex;
+        padding-left: 50px;
+    }
+    &__info {
+        max-width: 240px;
+        width: 100%;
+        margin-right: 60px;
+    }
+    &__info-box {
+        margin-bottom: 30px;
+    }
+    &__info-title {
+        font-size: 21px;
+        line-height: 1.2em;
+        @extend %ubuntu-bold;
+        margin:0 0 13px;
+    }
+    &__info-phone,
+    &__info-email {
+        font-size: 15px;
+        line-height: 1.2em;
+    }
+    &__info-email:hover {
+        text-decoration: underline;
+    }
+    &__form {
+        width: 570px;
+        margin-right: 106px;
+    }
+    &__form-title {
+        font-size: 21px;
+        line-height: 1.1em;
+        @extend %ubuntu-bold;
+        margin-bottom: 13px;
+    }
+    &__form-text {
+        font-size: 15px;
+        line-height: 1.2em;
+        margin-bottom: 12px;
+    }
+    &__form-line {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    &__form-input,
+    &__form-textarea {
+        background: rgba(0, 0, 0, 0.5);
+        @extend %ubuntu-regular; 
+        border: none;
+        padding: 15px;
+        font-size: 13px;
+        line-height: 1.1em;
+        color: #fff;
+        &::placeholder {
+            color:rgba(#fff , 0.4)
+        }
+    }
+
+    &__form-input {
+        width: 49%;
+    }
+    &__form-textarea {
+        min-height: 144px;
+        width: 100%;
+        resize: none;
+        margin-bottom: 20px;
+    }
+
+    &__form-btn {
+        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 1.1em;
+        letter-spacing: 0.03em;
+        border-radius: 2px;
+        padding: 9px 15px;
+        color: #fff;
+        background-color: transparent;
+        border: 1px solid #fff;
+        @extend %ubuntu-bold;
+        cursor: pointer;
+        transition: .2s linear;
+        transition-property: color, background-color;
+        &:hover {
+            color: #1C1C1C;
+            background-color: #fff;
+        }
+    }
+    &__social-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__social-item {
+        margin: 14px 0;
+        transform: scale(1);
+        transition:transform .2s linear;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+    &__social-link {
+        opacity: 0.5;
+        transition: opacity .2s linear;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 32px;
+    left: 0;
+    &__copy {
+        text-align: right;
+        font-size: 13px;
+        line-height: 1.2em;
+        color: rgba(#fff, 0.64)
+    }
+}
+
+@import "media";
